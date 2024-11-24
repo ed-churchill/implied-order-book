@@ -19,3 +19,12 @@ Finally, we sum gamma contributions across all of the options to give us the tot
 
 * If GEX is positive, dealers are LONG GAMMA, so if the index moves up 1%, then delta also goes up so dealers need to SELL the underlying to delta hedge. If the index moves down 1%, then delta also goes down so dealers need to BUY the underlying to delta hedge.
 * If GEX is negative, dealers are SHORT GAMMA, so if the index moves up 1%, then delta goes down so dealers need to BUY the underlying to delta hedge. If the index moves down 1%, then delta goes up so dealers need to SELL the underlying to delta hedge.
+
+If we calculate GEX at various strikes, there will be some strike price where dealers go from positve GEX to negative GEX. We can compare where the index is currently trading with this strike. Then:
+* If the index is trading in the positive gamma zone, we are in a **volatility stabilizing** market and dealers are supplying liquidity to the market since their hedging flows are always in the opposite direction to the way the market is moving. Why is this? Because dealers are long gamma. So:
+    * If the underlying market moves up, delta moves up, so dealers must sell the underlying, which pushes the price of the underlying back down and keeps it stable.
+    * If the underlying market moves down, delta moves down, so dealers must buy the underlying, which pushes the price of the underlying back up and keeps it stable.
+
+* If the index is trading in the negative gamma zone, we are in a **volatility destabilizing** market and dealers are taking liquidity from the market since their hedging flows are always in the same direction to the way the market is moving. Why is this? Because dealers are short gamma. So:
+    * If the underlying market moves up, delta moves down, so dealers must buy the underlying, which pushes the price of the underlying up even further, which is destabilising.
+    * If the underlying market moves down, delta moves up, so dealers must sell the underlying, which pushes the price of the underlying down even further, which is destabilising.
